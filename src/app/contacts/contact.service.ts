@@ -36,7 +36,7 @@ export class ContactService {
 
   // put("/api/contacts/:id")
   updateContact(putContact: Contact): Promise<void | Contact> {
-    var putUrl = this.contactsUrl + '/' + putContact._id;
+    const putUrl = this.contactsUrl + '/' + putContact._id;
     return this.http.put(putUrl, putContact)
       .toPromise()
       .then(response => JSON.parse(response.toString()) as Contact)
@@ -44,7 +44,7 @@ export class ContactService {
   }
 
   private handleError (error: any) {
-    let errMsg = (error.message) ? error.message :
+    const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
   }
